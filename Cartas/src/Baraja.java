@@ -1,55 +1,77 @@
-/*
-(Para entregar) Realiza un programa que simule el funcionamiento de un juego de cartas. Para ello la lógica será la siguiente:
-
-Cada jugador se le repartes 10 cartas al azar la baraja española (10 objetos de la clase Carta donde cada uno tiene valor y palo que previamente tienen que estar barajadas).
-
-Una vez los jugadores tienen todas las cartas se dan dos turnos de juego y cada jugador puede
-
-Descartase de entre 1 y 3 cartas: selecciona el número de cartas (y cuales) y se le reparten cartas aleatorias
-Robar al rival entre 1 y tres cartas
-Pasar
-Cuando se pasan los turnos se decidirá cual es el ganador:
-
-Ganará aquel jugador que tenga más cartas del mismo palo ordenadas
-Para el ejercicio tendrás que:
-
-Crear un arraylist y rellenarlo automáticamente
-
-Montar un menú para que pueda is dandose la mecánica del juego
-
-Ves mostrando las cartas de cada jugador, reparticiones, etc ... en todo momento
- */
-
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Baraja {
-    ArrayList<String> baraja = new ArrayList<>();
+    Scanner in = new Scanner(System.in);
+    ArrayList baraja = new ArrayList<Carta>();
 
-    public void llenarBaraja(){
-        for (int j = 1; j < 4; j++) {
-            for (int i = 1; i < 13; i++) {
-                switch (j){
-                    case 1:
-                        baraja.add(i+" O");
-                        break;
-                    case 2:
-                        baraja.add(i+" B");
-                        break;
-                    case 3:
-                        baraja.add(i+" E");
-                        break;
-                    default:
-                        baraja.add(i+" C");
-                        break;
-                }
-            }
+    public void crear(){
+        for (int i = 1; i < 13; i++) {
+            Carta carta = new Carta(i, "Oros");
+            baraja.add(carta);
         }
+        for (int i = 1; i < 13; i++) {
+            Carta carta = new Carta(i, "Bastos");
+            baraja.add(carta);
+        }
+        for (int i = 1; i < 13; i++) {
+            Carta carta = new Carta(i, "Espadas");
+            baraja.add(carta);
+        }
+        for (int i = 1; i < 13; i++) {
+            Carta carta = new Carta(i, "Copas");
+            baraja.add(carta);
+        }
+    }
+
+    public void repartir(Jugador jugador){
+        for (int i = 0; i < 10; i++) {
+            int aleatorio = (int) (Math.random() * baraja.size());
+            Carta carta = (Carta) baraja.get(aleatorio);
+            jugador.agregarCarta(carta);
+            baraja.remove(carta);
+        }
+    }
+
+    public void descartar(Jugador jugador){
+
+        System.out.println("Cuántas cartas quieres descartar(1,2 o 3):");
+        int opcion = in.nextInt();
+
+        switch (opcion){
+            case 1:
+                System.out.println("Selecciona una carta:");
+                jugador.verCartas();
+
+                int descarte = in.nextInt();
+                //Carta carta = jugador.getCarta(descarte);
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void robar(Jugador jugador){
+
     }
 
     public void mostrarBaraja(){
-        for (String item : baraja) {
-            System.out.println(item);
+        for (int i = 0; i < baraja.size(); i++) {
+            Carta carta = (Carta) baraja.get(i);
+            carta.mostrarDatos();
         }
     }
 
+    public ArrayList getBaraja() {
+        return baraja;
+    }
+
+    public void setBaraja(ArrayList baraja) {
+        this.baraja = baraja;
+    }
 }

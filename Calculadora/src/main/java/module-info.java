@@ -8,6 +8,7 @@ module com.example.calculadora {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
+    requires java.scripting;
 
     opens com.example.calculadora to javafx.fxml;
     exports com.example.calculadora;

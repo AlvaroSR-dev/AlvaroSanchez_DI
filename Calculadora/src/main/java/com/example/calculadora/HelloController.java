@@ -9,8 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
-
+import java.io.*;
+import java.lang.reflect.Array;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
@@ -103,6 +105,23 @@ public class HelloController implements Initializable {
                 }
             });
 
+            decimal.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    resultado.setText(resultado.getText()+decimal.getText());
+                }
+            });
+
+            positivoNegativo.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    String[] resultadoSplit = resultado.getText().split("");
+                    if (resultadoSplit[0] == "-"){
+                        
+                    }
+                }
+            });
+
             ac.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
@@ -115,7 +134,7 @@ public class HelloController implements Initializable {
                 public void handle(ActionEvent actionEvent) {
                     operando1 = Double.parseDouble(resultado.getText());
                     resultado.setText("");
-                    operacion = "suma";
+                    operacion = "sumar";
                 }
             });
 
@@ -124,7 +143,34 @@ public class HelloController implements Initializable {
                 public void handle(ActionEvent actionEvent) {
                     operando1 = Double.parseDouble(resultado.getText());
                     resultado.setText("");
-                    operacion = "resta";
+                    operacion = "restar";
+                }
+            });
+
+            multiplicar.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    operando1 = Double.parseDouble(resultado.getText());
+                    resultado.setText("");
+                    operacion = "multiplicar";
+                }
+            });
+
+            dividir.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    operando1 = Double.parseDouble(resultado.getText());
+                    resultado.setText("");
+                    operacion = "dividir";
+                }
+            });
+
+            modulo.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    operando1 = Double.parseDouble(resultado.getText());
+                    resultado.setText("");
+                    operacion = "modulo";
                 }
             });
 
@@ -133,12 +179,24 @@ public class HelloController implements Initializable {
                 public void handle(ActionEvent actionEvent) {
                     operando2 = Double.parseDouble(resultado.getText());
                     switch (operacion){
-                        case "suma":
+                        case "sumar":
                             numResultado = operando1+operando2;
                             resultado.setText(String.valueOf(numResultado));
                             break;
-                        case "resta":
+                        case "restar":
                             numResultado = operando1-operando2;
+                            resultado.setText(String.valueOf(numResultado));
+                            break;
+                        case "multiplicar":
+                            numResultado = operando1*operando2;
+                            resultado.setText(String.valueOf(numResultado));
+                            break;
+                        case "dividir":
+                            numResultado = operando1/operando2;
+                            resultado.setText(String.valueOf(numResultado));
+                            break;
+                        case "modulo":
+                            numResultado = operando1%operando2;
                             resultado.setText(String.valueOf(numResultado));
                             break;
                     }

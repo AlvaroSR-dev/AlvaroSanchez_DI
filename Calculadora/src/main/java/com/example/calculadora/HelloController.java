@@ -5,9 +5,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import java.io.*;
 import java.lang.reflect.Array;
@@ -23,17 +22,22 @@ public class HelloController implements Initializable {
     String operacion = "";
 
     @FXML
-    private TextArea resultado;
+    private TextArea resultado, registroArea;
 
     @FXML
-    private GridPane gridCalculadora;
+    private GridPane gridCalculadora, panelSci, panelRegistro;
 
     @FXML
-    private Button sci, registro, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, cero, ac, positivoNegativo, modulo, dividir, multiplicar, restar, sumar, igual, numeroE, decimal;
+    private BorderPane borderPane;
+
+    @FXML
+    private Button sci, registro, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, cero, ac, positivoNegativo, modulo, dividir, multiplicar, restar, sumar, igual, numeroE, decimal, cerrarSci, sin, x, raiz, elevado, ln, e, cerrarRegistro, borrarRegistro;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+            borderPane.getChildren().remove(panelSci);
+            borderPane.getChildren().remove(panelRegistro);
             uno.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
@@ -126,6 +130,34 @@ public class HelloController implements Initializable {
                 @Override
                 public void handle(ActionEvent actionEvent) {
                     resultado.setText("");
+                }
+            });
+
+            sci.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    borderPane.setLeft(panelSci);
+                }
+            });
+
+            cerrarSci.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    borderPane.getChildren().remove(panelSci);
+                }
+            });
+
+            cerrarRegistro.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    borderPane.getChildren().remove(panelRegistro);
+                }
+            });
+
+            registro.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    borderPane.setRight(panelRegistro);
                 }
             });
 

@@ -11,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import java.io.*;
 import java.lang.reflect.Array;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
@@ -18,8 +19,7 @@ public class HelloController implements Initializable {
     private double operando1 = 0.0;
     private double operando2 = 0.0;
     private double numResultado = 0.0;
-
-    String operacion = "";
+    private String operacion = "";
 
     @FXML
     private TextArea resultado, registroArea;
@@ -161,12 +161,19 @@ public class HelloController implements Initializable {
                 }
             });
 
+            borrarRegistro.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    registroArea.setText("");
+                }
+            });
+
             sumar.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
                     operando1 = Double.parseDouble(resultado.getText());
                     resultado.setText("");
-                    operacion = "sumar";
+                    operacion = "+";
                 }
             });
 
@@ -175,7 +182,7 @@ public class HelloController implements Initializable {
                 public void handle(ActionEvent actionEvent) {
                     operando1 = Double.parseDouble(resultado.getText());
                     resultado.setText("");
-                    operacion = "restar";
+                    operacion = "-";
                 }
             });
 
@@ -184,7 +191,7 @@ public class HelloController implements Initializable {
                 public void handle(ActionEvent actionEvent) {
                     operando1 = Double.parseDouble(resultado.getText());
                     resultado.setText("");
-                    operacion = "multiplicar";
+                    operacion = "x";
                 }
             });
 
@@ -193,7 +200,7 @@ public class HelloController implements Initializable {
                 public void handle(ActionEvent actionEvent) {
                     operando1 = Double.parseDouble(resultado.getText());
                     resultado.setText("");
-                    operacion = "dividir";
+                    operacion = "/";
                 }
             });
 
@@ -202,7 +209,7 @@ public class HelloController implements Initializable {
                 public void handle(ActionEvent actionEvent) {
                     operando1 = Double.parseDouble(resultado.getText());
                     resultado.setText("");
-                    operacion = "modulo";
+                    operacion = "%";
                 }
             });
 
@@ -211,27 +218,30 @@ public class HelloController implements Initializable {
                 public void handle(ActionEvent actionEvent) {
                     operando2 = Double.parseDouble(resultado.getText());
                     switch (operacion){
-                        case "sumar":
+                        case "+":
                             numResultado = operando1+operando2;
                             resultado.setText(String.valueOf(numResultado));
                             break;
-                        case "restar":
+                        case "-":
                             numResultado = operando1-operando2;
                             resultado.setText(String.valueOf(numResultado));
                             break;
-                        case "multiplicar":
+                        case "x":
                             numResultado = operando1*operando2;
                             resultado.setText(String.valueOf(numResultado));
                             break;
-                        case "dividir":
+                        case "/":
                             numResultado = operando1/operando2;
                             resultado.setText(String.valueOf(numResultado));
                             break;
-                        case "modulo":
+                        case "%":
                             numResultado = operando1%operando2;
                             resultado.setText(String.valueOf(numResultado));
                             break;
                     }
+                    String operacionRealizada = String.valueOf(operando1) + " " + operacion + " " + String.valueOf(operando2) + " = " + String.valueOf(numResultado);
+                    System.out.println(operacionRealizada);
+                    registroArea.setText(registroArea.getText()+operacionRealizada + "\n");
                 }
             });
 

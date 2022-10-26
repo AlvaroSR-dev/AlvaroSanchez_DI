@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane fx:id="borderPane" prefWidth="549.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.calculadora.HelloController">
    <center>
       <GridPane fx:id="gridCalculadora" prefHeight="340.0" prefWidth="550.0">
@@ -80,11 +79,11 @@
          <children>
             <Button fx:id="cerrarSci" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: orange;" text="&gt;&gt;" />
             <Button fx:id="sin" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="sin" GridPane.rowIndex="1" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="x!" GridPane.rowIndex="2" fx:id="x" />
-            <Button fx:id="raiz" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="√" GridPane.rowIndex="3" />
-            <Button fx:id="elevado" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="^ " GridPane.rowIndex="4" />
-            <Button fx:id="ln" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="ln" GridPane.rowIndex="5" />
-            <Button fx:id="e" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="e" GridPane.rowIndex="6" />
+            <Button fx:id="factorial" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="x!" GridPane.rowIndex="4" />
+            <Button fx:id="raiz" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="√" GridPane.rowIndex="5" />
+            <Button fx:id="elevado" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="^ " GridPane.rowIndex="6" />
+            <Button fx:id="cos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="cos" GridPane.rowIndex="2" />
+            <Button fx:id="tan" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="tan" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </left>

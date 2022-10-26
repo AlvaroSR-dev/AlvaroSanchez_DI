@@ -31,7 +31,7 @@ public class HelloController implements Initializable {
     private BorderPane borderPane;
 
     @FXML
-    private Button sci, registro, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, cero, ac, positivoNegativo, modulo, dividir, multiplicar, restar, sumar, igual, numeroE, decimal, cerrarSci, sin, x, raiz, elevado, ln, e, cerrarRegistro, borrarRegistro;
+    private Button sci, registro, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, cero, ac, positivoNegativo, modulo, dividir, multiplicar, restar, sumar, igual, numeroE, decimal, cerrarSci, sin, cos, tan, elevado, raiz, factorial, cerrarRegistro, borrarRegistro;
 
 
     @Override
@@ -213,6 +213,54 @@ public class HelloController implements Initializable {
                 }
             });
 
+            sin.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    operando1 = Double.parseDouble(resultado.getText());
+                    operacion = "sin";
+                }
+            });
+
+            cos.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    operando1 = Double.parseDouble(resultado.getText());
+                    operacion = "cos";
+                }
+            });
+
+            tan.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    operando1 = Double.parseDouble(resultado.getText());
+                    operacion = "tan";
+                }
+            });
+
+            factorial.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    operando1 = Double.parseDouble(resultado.getText());
+                    operacion = "factorial";
+                }
+            });
+
+            raiz.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    operando1 = Double.parseDouble(resultado.getText());
+                    operacion = "raiz";
+                }
+            });
+
+            elevado.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    operando1 = Double.parseDouble(resultado.getText());
+                    resultado.setText("");
+                    operacion = "^";
+                }
+            });
             igual.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
@@ -236,6 +284,28 @@ public class HelloController implements Initializable {
                             break;
                         case "%":
                             numResultado = operando1%operando2;
+                            resultado.setText(String.valueOf(numResultado));
+                            break;
+                        case "sin":
+                            numResultado = Math.sin(operando1);
+                            resultado.setText(String.valueOf(numResultado));
+                            break;
+                        case "cos":
+                            numResultado = Math.cos(operando1);
+                            resultado.setText(String.valueOf(numResultado));
+                            break;
+                        case "tan":
+                            numResultado = Math.tan(operando1);
+                            resultado.setText(String.valueOf(numResultado));
+                            break;
+                        case "factorial":
+                            break;
+                        case "raiz":
+                            numResultado = Math.sqrt(operando1);
+                            resultado.setText(String.valueOf(numResultado));
+                            break;
+                        case "^":
+                            numResultado = Math.pow(operando1, operando2);
                             resultado.setText(String.valueOf(numResultado));
                             break;
                     }

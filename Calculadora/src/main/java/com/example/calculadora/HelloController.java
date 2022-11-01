@@ -66,7 +66,6 @@ public class HelloController implements Initializable {
                 }
             });
 
-
             cinco.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
@@ -206,31 +205,42 @@ public class HelloController implements Initializable {
                 }
             });
 
+            raiz.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    operacion = "raiz";
+                }
+            });
+
             igual.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
                     operando2 = Double.parseDouble(resultado.getText());
-                    switch (operacion){
+                    switch (operacion) {
                         case "sumar":
-                            numResultado = operando1+operando2;
+                            numResultado = operando1 + operando2;
                             resultado.setText(String.valueOf(numResultado));
                             break;
                         case "restar":
-                            numResultado = operando1-operando2;
+                            numResultado = operando1 - operando2;
                             resultado.setText(String.valueOf(numResultado));
                             break;
                         case "multiplicar":
-                            numResultado = operando1*operando2;
+                            numResultado = operando1 * operando2;
                             resultado.setText(String.valueOf(numResultado));
                             break;
                         case "dividir":
-                            numResultado = operando1/operando2;
+                            numResultado = operando1 / operando2;
                             resultado.setText(String.valueOf(numResultado));
                             break;
                         case "modulo":
-                            numResultado = operando1%operando2;
+                            numResultado = operando1 % operando2;
                             resultado.setText(String.valueOf(numResultado));
                             break;
+                        case "raiz":
+                            numResultado = Math.sqrt(operando1);
+                            System.out.println(numResultado);
+                            resultado.setText(String.valueOf(numResultado));
                     }
                 }
             });

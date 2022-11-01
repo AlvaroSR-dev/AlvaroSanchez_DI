@@ -1,5 +1,6 @@
 package com.example.pizzeria;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -51,6 +52,9 @@ public class HelloController implements Initializable {
         buttonRealizar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                if (sizePeque.isSelected()){sizeSeleccion = sizePeque.getText();}
+                if (sizeMediana.isSelected()){sizeSeleccion = sizeMediana.getText();}
+                if (sizeFamiliar.isSelected()){sizeSeleccion = sizeFamiliar.getText();}
                 // Crear pizza
                 Pizza pizza = new Pizza(seleccionarPizza.getText(), sizeSeleccion);
                 pizza.crearPizza();

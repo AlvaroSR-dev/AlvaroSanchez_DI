@@ -119,7 +119,7 @@ public class HelloController implements Initializable {
             positivoNegativo.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    if (Double.parseDouble(resultado.getText()) > 0 || Double.parseDouble(resultado.getText()) < 0){
+                    if (Double.parseDouble(resultado.getText()) > 0 || Double.parseDouble(resultado.getText()) < 0) {
                         resultado.setText(String.valueOf(Double.parseDouble(resultado.getText()) * -1));
                     }
                 }

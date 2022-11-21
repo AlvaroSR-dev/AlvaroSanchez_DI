@@ -26,11 +26,11 @@ public class Pizza {
                 ingredientes.add(new Ingrediente("Cebolla"));
                 ingredientes.add(new Ingrediente("Carne"));
 
-                if (sizePizza == "Pequeña"){
+                if (sizePizza.equals("Pequeña")){
                     precio = 7;
-                }else if (sizePizza == "Mediana"){
+                }else if (sizePizza.equals("Mediana")){
                     precio = 12;
-                }else if (sizePizza == "Familiar"){
+                }else if (sizePizza.equals("Familiar")){
                     precio = 15;
                 }
 
@@ -40,11 +40,11 @@ public class Pizza {
                 ingredientes.add(new Ingrediente("Jamón"));
                 ingredientes.add(new Ingrediente("Salsa"));
 
-                if (sizePizza == "Pequeña"){
+                if (sizePizza.equals("Pequeña")){
                     precio = 5;
-                }else if (sizePizza == "Mediana"){
+                }else if (sizePizza.equals("Mediana")){
                     precio = 10;
-                }else if (sizePizza == "Familiar"){
+                }else if (sizePizza.equals("Familiar")){
                     precio = 13;
                 }
 
@@ -53,11 +53,11 @@ public class Pizza {
                 ingredientes.add(new Ingrediente("Jamón"));
                 ingredientes.add(new Ingrediente("Queso"));
 
-                if (sizePizza == "Pequeña"){
+                if (sizePizza.equals("Pequeña")){
                     precio = 4;
-                }else if (sizePizza == "Mediana"){
+                }else if (sizePizza.equals("Mediana")){
                     precio = 8;
-                }else if (sizePizza == "Familiar"){
+                }else if (sizePizza.equals("Familiar")){
                     precio = 10;
                 }
 
@@ -68,11 +68,11 @@ public class Pizza {
                 ingredientes.add(new Ingrediente("Queso roquefort"));
                 ingredientes.add(new Ingrediente("Queso gouda"));
 
-                if (sizePizza == "Pequeña"){
+                if (sizePizza.equals("Pequeña")){
                     precio = 8;
-                }else if (sizePizza == "Mediana"){
+                }else if (sizePizza.equals("Mediana")){
                     precio = 13;
-                }else if (sizePizza == "Familiar"){
+                }else if (sizePizza.equals("Familiar")){
                     precio = 17;
                 }
 

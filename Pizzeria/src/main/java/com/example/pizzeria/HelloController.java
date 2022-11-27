@@ -1,13 +1,12 @@
 package com.example.pizzeria;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ public class HelloController implements Initializable {
     ArrayList<Pedido> listaPedidos = new ArrayList<Pedido>();
 
     @FXML
-    private Button buttonRealizar;
+    private Button buttonRealizar, buttonDetalles;
 
     @FXML
     private TextField nombreCliente, tlfCliente;
@@ -33,10 +32,13 @@ public class HelloController implements Initializable {
     private RadioButton sizePeque, sizeMediana, sizeFamiliar;
 
     @FXML
-    private TextArea textAreaPedidos;
+    private ListView<String> listViewPedidos;
 
     @FXML
     private HBox sizeGrupo;
+
+    @FXML
+    private Text textDetalles;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -55,23 +57,42 @@ public class HelloController implements Initializable {
                 if (sizePeque.isSelected()){sizeSeleccion = sizePeque.getText();}
                 if (sizeMediana.isSelected()){sizeSeleccion = sizeMediana.getText();}
                 if (sizeFamiliar.isSelected()){sizeSeleccion = sizeFamiliar.getText();}
+
                 // Crear pizza
+
                 Pizza pizza = new Pizza(seleccionarPizza.getText(), sizeSeleccion);
                 pizza.crearPizza();
                 pizza.mostrarDatos();
+
                 // Crear pedido
+
                 Pedido pedido = new Pedido((listaPedidos.size() + 1), Integer.parseInt(tlfCliente.getText()), nombreCliente.getText(), pizza);
                 listaPedidos.add(pedido);
                 pedido.mostrarDatos();
+
                 // Limpiar campos
+
                 nombreCliente.setText("");
                 tlfCliente.setText("");
                 seleccionarPizza.setText("Seleccionar");
                 sizePeque.setSelected(false);
                 sizeMediana.setSelected(false);
                 sizeFamiliar.setSelected(false);
+
                 // Mostrar pedido en Text Area
-                textAreaPedidos.setText(textAreaPedidos.getText() + pedido.datos());
+
+                listViewPedidos.getItems().add(pedido.datos());
+            }
+        });
+
+        buttonDetalles.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                for (Pedido item:listaPedidos) {
+                    if (item.datos().equals(listViewPedidos.getSelectionModel().getSelectedItem().toString())){
+                        textDetalles.setText(item.datosDetalle());
+                    }
+                }
             }
         });
     }

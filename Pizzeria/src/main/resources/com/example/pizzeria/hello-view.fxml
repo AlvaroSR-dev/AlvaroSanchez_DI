@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
@@ -19,19 +20,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pizzeria.HelloController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="600.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pizzeria.HelloController">
    <children>
-      <GridPane layoutX="1.0" layoutY="-2.0" prefHeight="400.0" prefWidth="600.0">
+      <GridPane layoutX="1.0" layoutY="-2.0" prefHeight="569.0" prefWidth="600.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="357.0" minHeight="10.0" prefHeight="317.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="130.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="388.0" minHeight="10.0" prefHeight="307.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="357.0" minHeight="10.0" prefHeight="148.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pedidos de la pizzería" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Pedidos de la pizzería" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="36.0" />
                </font></Text>
@@ -61,7 +63,7 @@
                   </MenuButton>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <RadioButton fx:id="sizePeque" contentDisplay="CENTER" mnemonicParsing="false" text="Pequeña">
+                        <RadioButton fx:id="sizePeque" contentDisplay="CENTER" mnemonicParsing="false" text="Pequeña" textFill="WHITE">
                            <padding>
                               <Insets left="50.0" top="30.0" />
                            </padding>
@@ -69,12 +71,12 @@
                               <ToggleGroup fx:id="size" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="sizeMediana" mnemonicParsing="false" text="Mediana" toggleGroup="$size">
+                        <RadioButton fx:id="sizeMediana" mnemonicParsing="false" text="Mediana" textFill="WHITE" toggleGroup="$size">
                            <padding>
                               <Insets top="30.0" />
                            </padding>
                         </RadioButton>
-                        <RadioButton fx:id="sizeFamiliar" mnemonicParsing="false" text="Familiar" toggleGroup="$size">
+                        <RadioButton fx:id="sizeFamiliar" mnemonicParsing="false" text="Familiar" textFill="WHITE" toggleGroup="$size">
                            <padding>
                               <Insets top="30.0" />
                            </padding>
@@ -84,6 +86,11 @@
                   <Button fx:id="buttonRealizar" mnemonicParsing="false" text="Realizar pedido">
                      <VBox.margin>
                         <Insets left="100.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="buttonDetalles" mnemonicParsing="false" text="Mostrar detalles">
+                     <VBox.margin>
+                        <Insets left="100.0" top="20.0" />
                      </VBox.margin>
                   </Button>
                </children>
@@ -96,6 +103,17 @@
                   <Insets left="70.0" />
                </GridPane.margin>
             </ImageView>
+            <ListView fx:id="listViewPedidos" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Detalles:" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="textDetalles" fill="WHITE" layoutX="127.0" layoutY="518.0" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
          </children>
       </GridPane>
    </children>

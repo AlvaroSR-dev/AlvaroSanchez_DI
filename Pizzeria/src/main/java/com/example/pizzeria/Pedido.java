@@ -24,12 +24,17 @@ public class Pedido {
     }
 
     public String datos(){
-        return "---------------" +
-            "\n ID: " + id +
+        return "ID: " + id + "| tlf: " + tlf + " | " + pizza.getPrecio() + "€";
+    }
+
+    public String datosDetalle(){
+        return
+            "ID: " + id +
             "\n Teléfono: " + tlf +
             "\n Nombre: " + nombre +
             "\n Pizza: " + pizza.getNombre() +
-            "\n Precio: " + pizza.getPrecio() + "\n";
+            "\n Tamaño: " + pizza.getSize() +
+            "\n Precio: " + pizza.getPrecio() + "€";
     }
 
     public int getId() {

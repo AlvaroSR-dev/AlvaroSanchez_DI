@@ -1,0 +1,39 @@
+{
+    "notas":[
+        {
+            "fecha": "10-01-2023",
+            "titulo": "DI",
+            "descripcion": "Desarrollo de Interfaces",
+            "completa":  true,
+            "tareas": ["Java", "JavaFX", "JavaScript"]
+        },
+        {
+            "fecha": "10-01-2023",
+            "titulo": "PMDM",
+            "descripcion": "Programación Multimedia en Dispositivos Móviles",
+            "completa":  true,
+            "tareas": ["Kotlin", "Android"]
+        },
+        {
+            "fecha": "10-01-2023",
+            "titulo": "PSP",
+            "descripcion": "Programación de Servicios y Procesos",
+            "completa":  false,
+            "tareas": ["Java", "Powershell", "Linux", "Windows"]
+        },
+        {
+            "fecha": "10-01-2023",
+            "titulo": "SGE",
+            "descripcion": "Sistemas de Gestión Empresarial",
+            "completa":  false,
+            "tareas": ["Odoo", "Canva"]
+        },
+        {
+            "fecha": "10-01-2023",
+            "titulo": "AD",
+            "descripcion": "Acceso a Datos",
+            "completa":  false,
+            "tareas": ["Python"]
+        }
+    ]
+}
